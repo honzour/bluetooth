@@ -9,13 +9,33 @@
     android:layout_height="wrap_content"
     android:orientation="vertical" >
     
-    <Button
+    <Spinner 
         android:layout_width="fill_parent"
     	android:layout_height="wrap_content"
-    	android:id="@+id/main_new_task"
-    	android:text="Start"
+    	android:id="@+id/route"
+        />
+    
+    <LinearLayout 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal" >
+    
+    	<Button
+    	    android:layout_weight="1"
+        	android:layout_width="0px"
+    		android:layout_height="wrap_content"
+    		android:id="@+id/start"
+    		android:text="Start"
+        />
+    	
+    	<Button
+    	    android:layout_weight="1"
+        	android:layout_width="0px"
+    		android:layout_height="wrap_content"
+    		android:id="@+id/stop"
+    		android:text="Stop"
         />
 
-    
+	</LinearLayout>    
 </LinearLayout>
 </ScrollView>
