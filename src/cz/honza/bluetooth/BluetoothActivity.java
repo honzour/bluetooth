@@ -14,18 +14,29 @@ public class BluetoothActivity extends Activity {
 	protected Spinner mRoute;
 	protected AudioManager mAm;
 	
+	protected void trySetBluetooth(boolean on)
+	{
+		if (on)
+			mAm.startBluetoothSco();
+		else
+			mAm.stopBluetoothSco();
+	}
+	
 	protected void setRoute()
 	{
 		switch(mRoute.getSelectedItemPosition())
 		{
 		case 0:
+			trySetBluetooth(false);
 			mAm.setSpeakerphoneOn(false);
 			break;
 		case 1:
+			trySetBluetooth(false);
 			mAm.setSpeakerphoneOn(true);
 			break;
 		case 2:
 			mAm.setSpeakerphoneOn(false);
+			trySetBluetooth(true);
 			break;
 		}
 	}
