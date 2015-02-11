@@ -23,7 +23,7 @@ public class AudioThread extends Thread {
 		byte[] data = new byte[size];
 		for (int i = 0; i < size; i++)
 		{
-			data[i] = (byte)(Math.sin(i) * 50 + 0.5);
+			data[i] = (byte)(Math.sin(i / 10) * 10 + 0.5);
 		}
 
 		at.play();

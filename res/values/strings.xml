@@ -1,5 +1,11 @@
 <resources>
 
     <string name="app_name">Bluetooth</string>
+    
+    <string-array name="routes">
+        <item>Receiver</item>
+        <item>Speaker</item>
+        <item>Bluetooth</item>
+    </string-array>
 
 </resources>
