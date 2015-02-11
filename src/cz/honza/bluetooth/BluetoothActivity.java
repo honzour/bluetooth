@@ -5,6 +5,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 
 public class BluetoothActivity extends Activity {
@@ -13,11 +14,8 @@ public class BluetoothActivity extends Activity {
 	protected Spinner mRoute;
 	protected AudioManager mAm;
 	
-	protected void start()
+	protected void setRoute()
 	{
-		mAm.setMode(AudioManager.MODE_IN_COMMUNICATION);
-		if (mThread != null)
-			mThread.requestStop();
 		switch(mRoute.getSelectedItemPosition())
 		{
 		case 0:
@@ -30,6 +28,14 @@ public class BluetoothActivity extends Activity {
 			mAm.setSpeakerphoneOn(false);
 			break;
 		}
+	}
+	
+	protected void start()
+	{
+		mAm.setMode(AudioManager.MODE_IN_COMMUNICATION);
+		if (mThread != null)
+			mThread.requestStop();
+		setRoute();
 		mThread = new AudioThread();
 		mThread.start();
 	}
@@ -59,7 +65,19 @@ public class BluetoothActivity extends Activity {
 		});
 		mAm = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
 		mRoute = (Spinner)findViewById(R.id.route);
+		mRoute.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				setRoute();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// NOOP
+			}
 		
+		});
 		
 	}
 
