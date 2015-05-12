@@ -15,8 +15,10 @@ public class AudioThread extends Thread {
 	
 	@Override
 	public void run() {
-		int size = AudioTrack.getMinBufferSize (8000, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_8BIT); 
-		AudioTrack at = new AudioTrack(AudioManager.STREAM_MUSIC, 8000, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_8BIT, 
+		int freq = 16000;
+		
+		int size = AudioTrack.getMinBufferSize (freq, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_8BIT); 
+		AudioTrack at = new AudioTrack(AudioManager.STREAM_MUSIC, freq, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_8BIT, 
 				size,
 				AudioTrack.MODE_STREAM);
 		

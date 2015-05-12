@@ -1,7 +1,10 @@
 package cz.honza.bluetooth;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.View;
@@ -56,6 +59,7 @@ public class BluetoothActivity extends Activity {
 		if (mThread != null)
 			mThread.requestStop();		
 	}
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
